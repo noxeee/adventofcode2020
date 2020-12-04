@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.Vector;
 import java.io.File;
 import java.io.FileNotFoundException;
 
