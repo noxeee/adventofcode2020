@@ -1,29 +1,4 @@
-import csv
 import re
-
-# read file
-
-with open("input.txt", 'r') as inpt:
-    # lines = inpt.read()
-    passports = inpt.read().split('\n\n')
-    # csvr = csv.reader(inpt, delimiter='^\s*$')
-    # Read and print the entire file line by line
-    # lines = [row for fow in csvr]
-
-    # print(lines)
-    print(len(passports))
-    '''
-     line = reader.readline()
-     while line != '':  # The EOF char is an empty string
-         print(line, end='')
-         line = reader.readline()
-         print(line)
-    '''
-# read as dict
-
-
-valid_passports = 0
-
 
 def is_valid(credentials, part2=False):
 
@@ -59,9 +34,6 @@ def is_valid(credentials, part2=False):
             key_val = item.split(':')
 
             cred_dict[key_val[0]] = key_val[1]
-
-        # print(cred_list)
-        print(cred_dict)
 
         if(int(cred_dict['byr']) < 1920 or int(cred_dict['byr']) > 2002):
             return False
@@ -119,16 +91,18 @@ def is_valid(credentials, part2=False):
         ]  # removed second part with regex: ", .*"
     # cid can be missing
 
-    # fields = re.split('\n | \w', credentials)
-
         for key in necessary_fields:
             if(credentials.find(key) == -1):
                 return False
     return True
 
-
 def count_valid_passports(batch, part2=False):
     return len([psp for psp in batch if is_valid(psp, part2)])
+
+# read file
+with open("input.txt", 'r') as inpt:
+
+    passports = inpt.read().split('\n\n')
 
 
 print("Number of valid passports for part 1:")
