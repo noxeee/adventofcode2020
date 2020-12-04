@@ -76,11 +76,12 @@ int main(){
     std::ifstream infile("input.txt");
 
     if (!infile.is_open()) {
-        std::cout << "failed to open " << '\n';
+        std::cout << "failed to open" << '\n';
         return 1;
     }
 
     while(std::getline(infile, inpt)) {
+        std::cout << "The input line: " << inpt << std::endl;
         if(!is_valid_pass(inpt)) valid_count++;
     }
 
