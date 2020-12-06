@@ -1,0 +1,16 @@
+# Advent of Code: Day 1 
+
+```{r}
+getwd()
+
+input <- scan("input.txt", quiet = TRUE)
+
+pairs <- combn(input, 2)
+
+sums <- colSums(pairs)
+
+pos <- match(2020, sums)
+
+print(cumprod(pairs[,pos]))
+
+```
