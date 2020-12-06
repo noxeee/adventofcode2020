@@ -9,7 +9,7 @@ function parse_row($bcode) {
     
     $rcodes = substr($bcode, 0, 7);
 
-    var_dump($rcodes);
+    //var_dump($rcodes);
 
     $range = array(0,127);
 
@@ -29,7 +29,7 @@ function parse_column($bcode) {
     
     $ccodes = substr($bcode, 7);
 
-    var_dump($ccodes);
+    //var_dump($ccodes);
 
     $range = array(0,7);
 
@@ -63,4 +63,15 @@ foreach ($bcodes as $bcode) {
     array_push($seat_ids, $seat_id);
 }
 
-echo max($seat_ids);
+echo "Max Seat ID: " . max($seat_ids) . "\n";
+
+sort($seat_ids);
+
+foreach ($seat_ids as $sid => $sid_val) {
+    $diff = $seat_ids[$sid+1] - $sid_val;
+    if ($diff == 2) {
+        echo "Gap between: " . $seat_ids[$sid+1] . " and " . $sid_val . "\n";
+        echo "The missing value is therefore " . ($seat_ids[$sid+1]+$sid_val)/2 . "\n"; 
+        break;
+    }
+}
