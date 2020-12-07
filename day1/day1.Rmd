@@ -1,11 +1,29 @@
 # Advent of Code: Day 1 
 
+## Part 1
+```{r}
+getwd()
+setwd("/home/lujza/adventofcode2020/day1")
+
+input <- scan("input.txt", quiet = TRUE)
+
+pairs <- combn(input, 2)
+
+sums <- colSums(pairs)
+
+pos <- match(2020, sums)
+
+print(cumprod(pairs[,pos]))
+
+```
+
+## Part 2
 ```{r}
 getwd()
 
 input <- scan("input.txt", quiet = TRUE)
 
-pairs <- combn(input, 2)
+pairs <- combn(input, 3)
 
 sums <- colSums(pairs)
 
