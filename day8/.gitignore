@@ -19,8 +19,9 @@ project/plugins/project/
 ### Scala ###
 *.class
 *.log
-.sbt
-.properties
-.json
+*.sbt
+*.properties
+.bsp/sbt.json
+
 
 # End of https://www.toptal.com/developers/gitignore/api/sbt,scala
